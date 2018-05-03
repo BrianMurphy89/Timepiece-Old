@@ -13,14 +13,14 @@ const homepageController = require('./controllers/homepage.js');
 app.use('/', homepageController)
 
 const client = new Client({
-    user:'BrianJR',
-    host:'http://localhost',
+    user:'BrianJr',
+    host:'localhost',
     database:'timepiece',
     port:5432,
 })
 client.connect()
 
-client.query('SELECT NOW()', (err,res) => {
+client.query('SELECT * FROM users;', (err,res) => {
     console.log(err,res)
     client.end()
 })
